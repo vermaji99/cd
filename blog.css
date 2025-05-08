@@ -1,0 +1,76 @@
+body{
+    background-image:url(https://th.bing.com/th/id/R.1601964919df739f3e83f1f0fff825ac?rik=X3uqfgKBOAl8jw&riu=http%3a%2f%2fwallup.net%2fwp-content%2fuploads%2f2016%2f01%2f302023-nature-field-landscape.jpg&ehk=rl3FTmjfsVkgEFJcqPbH6PU25IF9X6SzOlQkYlIGDE0%3d&risl=&pid=ImgRaw&r=0);
+    background-repeat: no-repeat;
+}
+.career-section {
+    padding: 2rem;
+    margin: 0 auto;
+    max-width: 800px;
+    text-align: center; /* Center text for cleaner layout */
+    background-color:transparent;
+  }
+  
+  .career-section img[alt="Career Exploration Banner"] {
+    width: 100%; /* Stretch banner image to full width */
+    border-radius: 5px; /* Add rounded corners */
+    margin-bottom: 1rem;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+  
+  .career-articles {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+  
+  .career-articles article {
+    width: calc(33% - 10px);
+    background-color: #fff;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Add subtle shadow for depth */
+    cursor: pointer;
+  }
+  
+  .career-articles article:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .career-articles article img {
+    width: 100%; /* Stretch article images to full width */
+    border-radius: 5px; /* Add rounded corners to article images */
+    margin-bottom: 0.5rem; /* Add space between image and text */
+  }
+  
+  h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1rem;
+  }
+  
+  button:hover {
+    background-color: #0069d9;
+  }
+  

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Career Option Test</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    h1 {
+        text-align: center;
+    }
+    .question {
+        margin-bottom: 20px;
+    }
+    .options {
+        display: flex;
+        flex-direction: column;
+    }
+    button {
+        margin-top: 10px;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+    .score-card {
+        margin-top: 30px;
+        border-top: 2px solid #ccc;
+        padding-top: 20px;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Career Option Test</h1>
+    <div class="question" id="question"></div>
+    <div class="options" id="options"></div>
+    <button onclick="nextQuestion()">Next</button>
+    <div class="score-card" id="score-card" style="display: none;">
+        <h2>Your Score Card</h2>
+        <ul id="score-list"></ul>
+    </div>
+</div>
+
+<script>
+    const questions = [
+        {
+            question: "What subjects do you enjoy the most in school?",
+            options: ["Science", "Arts", "Commerce", "Others"]
+        },
+        {
+            question: "What are your hobbies?",
+            options: ["Sports", "Music", "Reading", "Others"]
+        },
+        // Add more questions here...
+        {
+            question: "Where do you see yourself in the future?",
+            options: ["Entrepreneurship", "Professional career", "Research", "Others"]
+        },
+        {
+            question: "What are your interests outside of academics?",
+            options: ["Technology", "Nature", "Social work", "Others"]
+        }
+    ];
+
+    let currentQuestionIndex = 0;
+    const questionElement = document.getElementById("question");
+    const optionsElement = document.getElementById("options");
+    const scoreCardElement = document.getElementById("score-card");
+    const scoreListElement = document.getElementById("score-list");
+    let score = {};
+
+    function displayQuestion() {
+        const currentQuestion = questions[currentQuestionIndex];
+        questionElement.textContent = currentQuestion.question;
+        optionsElement.innerHTML = "";
+        currentQuestion.options.forEach((option, index) => {
+            const optionButton = document.createElement("button");
+            optionButton.textContent = option;
+            optionButton.setAttribute("value", option);
+            optionButton.addEventListener("click", selectOption);
+            optionsElement.appendChild(optionButton);
+        });
+    }
+
+    function selectOption(event) {
+        const selectedOption = event.target.value;
+        score[currentQuestionIndex] = selectedOption;
+        // Disable options after selection
+        const optionButtons = optionsElement.querySelectorAll("button");
+        optionButtons.forEach(button => {
+            button.disabled = true;
+        });
+    }
+
+    function nextQuestion() {
+        currentQuestionIndex++;
+        if (currentQuestionIndex < questions.length) {
+            displayQuestion();
+        } else {
+            // Display result or perform final actions
+            displayScoreCard();
+        }
+    }
+
+    function displayScoreCard() {
+        scoreCardElement.style.display = "block";
+        scoreListElement.innerHTML = "";
+        Object.entries(score).forEach(([questionIndex, selectedOption]) => {
+            const question = questions[questionIndex].question;
+            const listItem = document.createElement("li");
+            listItem.textContent = `${question}: ${selectedOption}`;
+            scoreListElement.appendChild(listItem);
+        });
+    }
+
+    // Initial display
+    displayQuestion();
+</script>
+
+</body>
+</html>
